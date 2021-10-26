@@ -2,7 +2,7 @@
 
 const path = require('path');
 const WorkboxWebpackPlugin = require('workbox-webpack-plugin');
-
+const nodeExternals = require('webpack-node-externals');
 const isProduction = process.env.NODE_ENV == 'production';
 
 const config = {
@@ -34,6 +34,7 @@ const config = {
     ],
   },
   target: 'node',
+  externals: [nodeExternals()],
 };
 
 module.exports = () => {
