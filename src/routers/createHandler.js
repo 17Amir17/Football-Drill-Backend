@@ -1,9 +1,4 @@
-const {
-  getKeeper,
-  getPlayer,
-  setKeeper,
-  setPlayer,
-} = require('../storage/players');
+const { setKeeper, setPlayer } = require('../storage/players');
 const express = require('express');
 const Player = require('../football/player');
 const Keeper = require('../football/goalKeeper');

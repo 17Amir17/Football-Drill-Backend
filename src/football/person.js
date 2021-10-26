@@ -23,12 +23,12 @@ class Person {
 
   set surName(surName) {
     //A player could get married
-    if (!surName) throw 'Invalid surname';
+    if (!surName || typeof surName != 'string') throw 'Invalid surname';
     this.#_surName = surName;
   }
 
   set age(a) {
-    if (typeof a === 'number') {
+    if (typeof a === 'number' && a) {
       this.#_age = a;
     } else {
       throw `${a} is not a number`;
@@ -36,7 +36,7 @@ class Person {
   }
 
   set salary(money) {
-    if (typeof money === 'number') {
+    if (typeof money === 'number' && money) {
       this.#_salary = money;
     } else {
       throw `${money} is not a number`;
