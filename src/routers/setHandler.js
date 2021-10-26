@@ -1,7 +1,5 @@
 const { getKeeper, getPlayer } = require('../storage/players');
 const express = require('express');
-const Player = require('../football/player');
-const Keeper = require('../football/goalKeeper');
 const router = express.Router();
 
 router.patch('/player', (req, res, next) => {
