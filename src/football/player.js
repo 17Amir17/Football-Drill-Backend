@@ -9,21 +9,24 @@ class Player extends Person {
     surName,
     salary,
     age,
+    image = undefined,
     strongLeg,
     position,
     celebrationSentance
   ) {
-    super(firstName, surName, salary, age);
+    super(firstName, surName, salary, age, image);
     this.#_strongLeg = strongLeg;
     this.position = position;
     this.celebrationSentance = celebrationSentance;
   }
 
   set position(pos) {
+    if (!pos) throw 'invalid pos';
     this.#_position = pos;
   }
 
   set celebrationSentance(sentance) {
+    if (!sentance) throw 'invalid sentance';
     this.#_celebrationSentance = sentance;
   }
 

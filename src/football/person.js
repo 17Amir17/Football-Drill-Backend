@@ -6,6 +6,7 @@ class Person {
   #_age;
   #_image;
   constructor(firstName, surName, salary, age, image = undefined) {
+    if (!firstName) throw 'Invalid firstname';
     this.#_firstName = firstName;
     this.surName = surName;
     this.salary = salary;
@@ -22,6 +23,7 @@ class Person {
 
   set surName(surName) {
     //A player could get married
+    if (!surName) throw 'Invalid surname';
     this.#_surName = surName;
   }
 

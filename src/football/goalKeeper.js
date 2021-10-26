@@ -8,6 +8,7 @@ class GoalKeeper extends Person {
     surName,
     salary,
     age,
+    image = undefined,
     isLeftHander,
     lastGoalConceded = new Date()
   ) {
