@@ -13,32 +13,51 @@ router.patch('/player', (req, res, next) => {
         case 'salary':
           player.salary = Number(req.query[query]);
           break;
-
         case 'age':
           player.age = Number(req.query[query]);
           break;
-
         case 'surName':
           player.surName = req.query[query];
           break;
-
         case 'strongLeg':
           player.strongLeg = req.query[query];
           break;
-
         case 'position':
           player.position = req.query[query];
           break;
-
         case 'celebrationSentance':
           player.celebrationSentance = req.query[query];
           break;
-
         default:
           throw 'Unknown query ' + query;
       }
     }
     res.json({ body: player.getDetails() });
+  } catch (error) {
+    throwCallbackError(error, next);
+  }
+});
+
+router.patch('/keeper', (req, res, next) => {
+  try {
+    const keeper = getKeeper();
+    if (!keeper) throw 'keeper not made yet';
+    for (const query in req.query) {
+      switch (query) {
+        case 'salary':
+          keeper.salary = Number(req.query[query]);
+          break;
+        case 'age':
+          keeper.age = Number(req.query[query]);
+          break;
+        case 'surName':
+          keeper.surName = req.query[query];
+          break;
+        default:
+          throw 'Unknown query ' + query;
+      }
+    }
+    res.json({ body: keeper.getDetails() });
   } catch (error) {
     throwCallbackError(error, next);
   }
