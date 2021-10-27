@@ -5,8 +5,11 @@ const createRouter = require('./routers/createHandler');
 const setRouter = require('./routers/setHandler');
 const getRouter = require('./routers/getHandler');
 const functionRouter = require('./routers/functionHandler');
+const { createStartingPlayers } = require('./storage/players');
 const server = express();
 const port = process.env.PORT || 3000;
+
+createStartingPlayers();
 
 server.use(cors());
 server.use(express.json());
