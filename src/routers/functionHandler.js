@@ -2,10 +2,10 @@ const { getKeeper, getPlayer } = require('../storage/players');
 const express = require('express');
 const router = express.Router();
 
-router.post('/player', (req, res, next) => {
+router.post('/player/:id', (req, res, next) => {
   try {
-    const player = getPlayer();
-    if (!player) throw 'Player not created yet :(';
+    const player = getPlayer(req.params.id);
+    if (!player) throw 'Player not found';
     player.goalCelebration();
     res.json({ player: player.getDetails() });
   } catch (error) {
@@ -13,10 +13,10 @@ router.post('/player', (req, res, next) => {
   }
 });
 
-router.post('/keeper', (req, res, next) => {
+router.post('/keeper/:id', (req, res, next) => {
   try {
-    const keeper = getKeeper();
-    if (!keeper) throw 'Keeper not created yet :(';
+    const keeper = getKeeper(req.params.id);
+    if (!keeper) throw 'Keeper not found';
     keeper.concededAGoal();
     res.json({ keeper: keeper.getDetails() });
   } catch (error) {
