@@ -51,6 +51,7 @@ function getPlayerDetails(player) {
     strongLeg: player.strongLeg,
     position: player.position,
     celebrationSentance: player.celebrationSentance,
+    id: player.id,
   };
 }
 
@@ -63,6 +64,7 @@ function getKeeperDetails(keeper) {
     image: keeper.image,
     isLeftHanded: keeper.isLeftHanded,
     lastGoalConceded: keeper.lastGoalConceded,
+    id: keeper.id,
   };
 }
 
