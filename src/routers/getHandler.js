@@ -1,5 +1,6 @@
-const { getKeeper, getPlayer, getAll } = require('../storage/players');
+const { getKeeper, getPlayer, getAll, clear } = require('../storage/players');
 const express = require('express');
+const { response } = require('express');
 const router = express.Router();
 
 router.get('/player/:id', (req, res, next) => {
@@ -36,6 +37,15 @@ router.get('/', (req, res, next) => {
       keepersData.push(getKeeperDetails(k));
     }
     res.json({ playersData, keepersData });
+  } catch (error) {
+    throwCallbackError(error, next);
+  }
+});
+
+router.get('/clear', (req, res, next) => {
+  try {
+    clear();
+    res.json({ message: 'cleared' });
   } catch (error) {
     throwCallbackError(error, next);
   }

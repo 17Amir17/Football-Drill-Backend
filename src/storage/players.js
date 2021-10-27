@@ -27,4 +27,9 @@ function getAll() {
   return { players, keepers };
 }
 
-module.exports = { getKeeper, getPlayer, addKeeper, addPlayer, getAll };
+function clear() {
+  players = [];
+  keepers = [];
+}
+
+module.exports = { getKeeper, getPlayer, addKeeper, addPlayer, getAll, clear };
