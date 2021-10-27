@@ -1,20 +1,30 @@
-let currentPlayer;
-let currentGoalKeeper;
+let players = [];
+let keepers = [];
 
-function getKeeper() {
-  return currentGoalKeeper;
+function getKeeper(id) {
+  for (const k of keepers) {
+    if (k.id == id) return k; //ID COMES AS STRING THATS WHY ==
+  }
+  return false;
 }
 
-function getPlayer() {
-  return currentPlayer;
+function getPlayer(id) {
+  for (const p of players) {
+    if (p.id == id) return p;
+  }
+  return false;
 }
 
-function setKeeper(keeper) {
-  currentGoalKeeper = keeper;
+function addKeeper(keeper) {
+  keepers.push(keeper);
 }
 
-function setPlayer(player) {
-  currentPlayer = player;
+function addPlayer(player) {
+  players.push(player);
 }
 
-module.exports = { getKeeper, getPlayer, setKeeper, setPlayer };
+function getAll() {
+  return { players, keepers };
+}
+
+module.exports = { getKeeper, getPlayer, addKeeper, addPlayer, getAll };

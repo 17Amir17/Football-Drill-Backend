@@ -2,10 +2,10 @@ const { getKeeper, getPlayer } = require('../storage/players');
 const express = require('express');
 const router = express.Router();
 
-router.patch('/player', (req, res, next) => {
+router.patch('/player/:id', (req, res, next) => {
   try {
-    const player = getPlayer();
-    if (!player) throw 'player not made yet';
+    const player = getPlayer(req.params.id);
+    if (!player) throw 'player not found';
     for (const query in req.query) {
       switch (query) {
         case 'salary':
@@ -36,10 +36,10 @@ router.patch('/player', (req, res, next) => {
   }
 });
 
-router.patch('/keeper', (req, res, next) => {
+router.patch('/keeper/:id', (req, res, next) => {
   try {
-    const keeper = getKeeper();
-    if (!keeper) throw 'keeper not made yet';
+    const keeper = getKeeper(req.params.id);
+    if (!keeper) throw 'keeper not found';
     for (const query in req.query) {
       switch (query) {
         case 'salary':

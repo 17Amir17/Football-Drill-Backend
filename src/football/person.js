@@ -68,7 +68,7 @@ class Person {
   }
 
   getDetails() {
-    return `First Name: ${this.firstName}\nSurname: ${this.surName}\nAge: ${this.age} years old\nSalary: ${this.salary} $`;
+    return `First Name: ${this.firstName}\nSurname: ${this.surName}\nAge: ${this.age} years old\nSalary: ${this.salary} $\nID: ${this.id}`;
   }
 }
 

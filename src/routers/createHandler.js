@@ -1,4 +1,4 @@
-const { setKeeper, setPlayer } = require('../storage/players');
+const { addKeeper, addPlayer } = require('../storage/players');
 const express = require('express');
 const Player = require('../football/player');
 const Keeper = require('../football/goalKeeper');
@@ -17,7 +17,7 @@ router.post('/player', (request, response, next) => {
       playerDetails.position,
       playerDetails.celebrationSentance
     );
-    setPlayer(player);
+    addPlayer(player);
     response.json({ message: player.getDetails() });
   } catch (error) {
     throwCallbackError(error, next);
@@ -36,7 +36,7 @@ router.post('/keeper', (request, response, next) => {
       keeperDetails.isLeftHander,
       new Date(JSON.parse(`"${keeperDetails.lastGoalConceded}"`))
     );
-    setKeeper(keeper);
+    addKeeper(keeper);
     response.json({ message: keeper.getDetails() });
   } catch (error) {
     throwCallbackError(error, next);
