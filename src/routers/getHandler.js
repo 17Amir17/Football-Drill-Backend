@@ -30,10 +30,10 @@ router.get('/', (req, res, next) => {
     const keepersData = [];
     const { players, keepers } = getAll();
     for (const p of players) {
-      playersData.push(p.getDetails());
+      playersData.push(getPlayerDetails(p));
     }
     for (const k of keepers) {
-      keepersData.push(k.getDetails());
+      keepersData.push(getKeeperDetails(k));
     }
     res.json({ playersData, keepersData });
   } catch (error) {
