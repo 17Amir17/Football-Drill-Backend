@@ -50,7 +50,7 @@ function getPlayerDetails(player) {
     image: player.image,
     strongLeg: player.strongLeg,
     position: player.position,
-    celebrationStance: player.celebrationStance,
+    celebrationSentance: player.celebrationSentance,
   };
 }
 
