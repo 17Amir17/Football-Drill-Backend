@@ -34,32 +34,39 @@ function clear() {
   keepers = [];
 }
 
-export function createStartingPlayers() {
-  const bale = new Player({
-    firstName: 'Gareth',
-    surName: 'Bale',
-    salary: 7700000,
-    age: 77,
-    image: 'https://www.futwiz.com/assets/img/fifa21/faces/100837027.png',
-    strongLeg: 'Right',
-    position: 'On the couch',
-    celebrationSentance: 'Oh jolly!',
-  });
+function createStartingPlayers() {
+  const bale = new Player(
+    'Gareth',
+    'Bale',
+    7700000,
+    77,
+    'https://www.futwiz.com/assets/img/fifa21/faces/100837027.png',
+    'Right',
+    'On the couch',
+    'Oh jolly!'
+  );
 
-  const messi = new Player({
-    firstName: 'Lionel',
-    surName: 'Messi',
-    salary: 99000000,
-    age: 16,
-    image:
-      'https://www.thesun.co.uk/wp-content/uploads/2017/04/nintchdbpict000319082025.jpg',
-    strongLeg: 'Left',
-    position: 'Striker',
-    celebrationSentance: 'ANKARA MESSI ANKARA MESSI ANKARA MESSI',
-  });
+  const messi = new Player(
+    'Lionel',
+    'Messi',
+    99000000,
+    16,
+    'https://www.thesun.co.uk/wp-content/uploads/2017/04/nintchdbpict000319082025.jpg',
+    'Left',
+    'Striker',
+    'ANKARA MESSI ANKARA MESSI ANKARA MESSI'
+  );
 
   players.push(messi);
   players.push(bale);
 }
 
-module.exports = { getKeeper, getPlayer, addKeeper, addPlayer, getAll, clear };
+module.exports = {
+  getKeeper,
+  getPlayer,
+  addKeeper,
+  addPlayer,
+  getAll,
+  clear,
+  createStartingPlayers,
+};
